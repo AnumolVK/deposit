@@ -1,6 +1,5 @@
 package com.svadhan.deposit.banking.repository;
 
-
 import com.svadhan.deposit.banking.entity.Emi;
 import org.springframework.data.jpa.repository.JpaRepository;
 

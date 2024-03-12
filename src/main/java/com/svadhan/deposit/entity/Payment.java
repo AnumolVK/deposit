@@ -1,28 +1,37 @@
 package com.svadhan.deposit.entity;
 
-import com.svadhan.deposit.model.DepositRequest;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "payment")
+@Table
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "bank_name")
     private String bankName;
+
+    @Column(name = "reference_id")
     private String referenceId;
+
+    @Column(name = "screenshot")
     private String screenshot;
+
+    @Column(name = "remarks")
     private String remarks;
+
+    // Constructors, getters, and setters
 
     public Payment() {
     }
 
-    public Payment(DepositRequest depositRequest) {
-        this.bankName = depositRequest.getBankName();
-        this.referenceId = depositRequest.getReferenceId();
-        this.screenshot = depositRequest.getScreenshot();
-        this.remarks = depositRequest.getRemarks();
+    public Payment(Long id, String bankName, String referenceId, String screenshot, String remarks) {
+        this.id = id;
+        this.bankName = bankName;
+        this.referenceId = referenceId;
+        this.screenshot = screenshot;
+        this.remarks = remarks;
     }
 
     public Long getId() {
