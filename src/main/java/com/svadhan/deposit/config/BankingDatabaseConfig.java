@@ -1,4 +1,4 @@
-package com.svadhan.customeronboarding.config;
+package com.svadhan.deposit.config;
 
 import jakarta.persistence.EntityManagerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ import java.util.HashMap;
 @EnableTransactionManagement
 @EnableJpaRepositories(
         entityManagerFactoryRef = "secondEntityManagerFactoryBean",
-        basePackages = {"com.svadhan.customeronboarding.bankingdatabase.repository"},
+        basePackages = {"com.svadhan.deposit.banking.repository"},
         transactionManagerRef = "secondTransactionManager"
 )
 public class BankingDatabaseConfig {
@@ -49,11 +49,12 @@ public class BankingDatabaseConfig {
         JpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
         bean.setJpaVendorAdapter(adapter);
 
-        bean.setPackagesToScan("com.svadhan.customeronboarding.bankingdatabase.entity");
+        bean.setPackagesToScan("com.svadhan.deposit.banking.entity");
 
         HashMap<String, Object> props = new HashMap<>();
+//        props.put("hibernate.hbm2ddl.auto","update");
         props.put("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
-        props.put("hibernate.show_sql", "true");
+//        props.put("hibernate.show_sql", "true");
         bean.setJpaPropertyMap(props);
         return bean;
     }

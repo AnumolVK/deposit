@@ -24,7 +24,7 @@ import java.util.HashMap;
 @EnableTransactionManagement
 @EnableJpaRepositories(
         entityManagerFactoryRef = "entityManagerFactoryBean",
-        basePackages = {"com.svadhan.customeronboarding.repository"},
+        basePackages = {"com.svadhan.deposit.repository"},
         transactionManagerRef = "transactionManager"
 )
 public class PersonalDatabaseConfig {
@@ -49,11 +49,11 @@ public class PersonalDatabaseConfig {
         JpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
         bean.setJpaVendorAdapter(adapter);
         //Setting entity base package
-        bean.setPackagesToScan("com.svadhan.customeronboarding.entity");
+        bean.setPackagesToScan("com.svadhan.deposit.entity");
 
         HashMap<String, String> props = new HashMap<>();
+//        props.put("hibernate.hbm2ddl.auto","update");
         props.put("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
-//        props.put("hibernate.show_sql", "true");
         bean.setJpaPropertyMap(props);
         return bean;
     }

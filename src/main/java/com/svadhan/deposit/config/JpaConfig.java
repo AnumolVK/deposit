@@ -10,6 +10,10 @@ import java.util.HashMap;
 @Configuration
 public class JpaConfig {
 
+    //    @Bean
+//    public EntityManagerFactoryBuilder entityManagerFactoryBuilder() {
+//        return new EntityManagerFactoryBuilder();
+//    }
     @Bean
     public EntityManagerFactoryBuilder entityManagerFactoryBuilder() {
         return new EntityManagerFactoryBuilder(new HibernateJpaVendorAdapter(), new HashMap<>(), null);
